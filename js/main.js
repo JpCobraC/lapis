@@ -50,4 +50,61 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // ─── Project Image Gallery / Carousel ───────────────────────────────────
+    // Each gallery is identified by a string ID (e.g. 'ag4')
+    // State is kept in a plain object so multiple galleries work independently
+    const galleryState = {};
+
+    function initGallery(id) {
+        const track = document.getElementById(`gallery-track-${id}`);
+        if (!track) return;
+        const total = track.querySelectorAll('.gallery-img').length;
+        galleryState[id] = { current: 0, total };
+
+        // Auto-play every 4 s; pause on hover
+        const wrapper = document.getElementById(`gallery-${id}`);
+        let timer = setInterval(() => galleryNext(id), 4000);
+        wrapper.addEventListener('mouseenter', () => clearInterval(timer));
+        wrapper.addEventListener('mouseleave', () => {
+            timer = setInterval(() => galleryNext(id), 4000);
+        });
+    }
+
+    // Expose globally so inline onclick works
+    window.galleryGoTo = function(id, index) {
+        if (!galleryState[id]) return;
+        galleryState[id].current = index;
+        _galleryRender(id);
+    };
+
+    window.galleryPrev = function(id) {
+        if (!galleryState[id]) return;
+        const s = galleryState[id];
+        s.current = (s.current - 1 + s.total) % s.total;
+        _galleryRender(id);
+    };
+
+    window.galleryNext = function(id) {
+        if (!galleryState[id]) return;
+        const s = galleryState[id];
+        s.current = (s.current + 1) % s.total;
+        _galleryRender(id);
+    };
+
+    function _galleryRender(id) {
+        const s = galleryState[id];
+        const track = document.getElementById(`gallery-track-${id}`);
+        if (track) track.style.transform = `translateX(-${s.current * 100}%)`;
+
+        const dots = document.querySelectorAll(`#gallery-dots-${id} .gallery-dot`);
+        dots.forEach((d, i) => d.classList.toggle('active', i === s.current));
+    }
+
+    // Initialize all galleries present on the page
+    document.querySelectorAll('.project-gallery').forEach(el => {
+        const id = el.id.replace('gallery-', '');
+        initGallery(id);
+    });
 });
+

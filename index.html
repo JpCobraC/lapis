@@ -7,8 +7,8 @@
     <title>LAPIS - Laboratório de Apoio à Pesquisa e Inovação em Sistemas de Informação</title>
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="images/Design-sem-nome.ico">
-    <link rel="shortcut icon" href="images/Design-sem-nome.ico">
+    <link rel="icon" type="image/x-icon" href="images/agricultura4.0/ag4.0.ico">
+    <link rel="shortcut icon" href="images/agricultura4.0/ag4.0.ico">
 
     <!-- SEO Meta Tags -->
     <meta name="description"
@@ -35,7 +35,7 @@
     <header class="navbar" id="navbar">
         <div class="container nav-content">
             <a href="#" class="logo-link">
-                <img src="images/Lapis.png" alt="LAPIS Logo" class="nav-logo-img">
+                <img src="images/LapisP.webp" alt="LAPIS Logo" class="nav-logo-img">
             </a>
             <nav class="nav-links">
                 <a href="#hero">Início</a>
@@ -140,6 +140,28 @@
                             style="background: linear-gradient(135deg, #2d7a2d 0%, #56b74e 100%);">
                             <span class="project-icon">🌱</span>
                             <h3>Agricultura 4.0</h3>
+                        </div>
+                        <!-- Image Gallery Carousel -->
+                        <div class="project-gallery" id="gallery-ag4">
+                            <div class="gallery-track" id="gallery-track-ag4">
+                                <img src="images/agricultura4.0/ag4-img1.webp"
+                                    alt="Estação meteorológica IoT - unboxing" class="gallery-img" loading="lazy">
+                                <img src="images/agricultura4.0/ag4-img3.webp"
+                                    alt="Estação meteorológica IoT - bateria e eletrônica" class="gallery-img"
+                                    loading="lazy">
+                                <img src="images/agricultura4.0/ag4-img2.webp"
+                                    alt="Estação meteorológica IoT - circuito interno" class="gallery-img"
+                                    loading="lazy">
+                            </div>
+                            <button class="gallery-btn gallery-prev" onclick="galleryPrev('ag4')"
+                                aria-label="Imagem anterior">&#8249;</button>
+                            <button class="gallery-btn gallery-next" onclick="galleryNext('ag4')"
+                                aria-label="Próxima imagem">&#8250;</button>
+                            <div class="gallery-dots" id="gallery-dots-ag4">
+                                <span class="gallery-dot active" onclick="galleryGoTo('ag4', 0)"></span>
+                                <span class="gallery-dot" onclick="galleryGoTo('ag4', 1)"></span>
+                                <span class="gallery-dot" onclick="galleryGoTo('ag4', 2)"></span>
+                            </div>
                         </div>
                         <div class="project-info">
                             <div class="project-tags">
@@ -537,21 +559,27 @@
                 <div class="funding-cards">
                     <!-- FAPEMIG -->
                     <div class="glass-card funding-card fade-in-up delay-1">
-                        <div class="funding-icon fapemig-icon">F</div>
+                        <div class="funding-logo-wrap">
+                            <img src="images/fapemig.webp" alt="Logo FAPEMIG" class="funding-logo-img">
+                        </div>
                         <h3>FAPEMIG</h3>
                         <p>Fundação de Amparo à Pesquisa do Estado de Minas Gerais.</p>
                     </div>
 
                     <!-- CNPq -->
                     <div class="glass-card funding-card fade-in-up delay-2">
-                        <div class="funding-icon cnpq-icon">C</div>
+                        <div class="funding-logo-wrap">
+                            <img src="images/cnpq.webp" alt="Logo CNPq" class="funding-logo-img">
+                        </div>
                         <h3>CNPq</h3>
                         <p>Conselho Nacional de Desenvolvimento Científico e Tecnológico.</p>
                     </div>
 
                     <!-- Fundação CEFET Minas -->
                     <div class="glass-card funding-card fade-in-up delay-3">
-                        <div class="funding-icon cefet-icon">FCM</div>
+                        <div class="funding-logo-wrap">
+                            <img src="images/fcm.webp" alt="Logo Fundação CEFET Minas" class="funding-logo-img">
+                        </div>
                         <h3>Fundação CEFET Minas</h3>
                         <p>Apoio contínuo ao desenvolvimento acadêmico e tecnológico.</p>
                     </div>
