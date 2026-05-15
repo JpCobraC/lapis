@@ -2,22 +2,24 @@
    VARIABLES & DESIGN SYSTEM
    ========================================= */
 :root {
-    /* Colors */
-    --bg-main: #0B0F19;
-    --bg-secondary: #121A2F;
-    --primary: #00E5FF;
-    --primary-glow: rgba(0, 229, 255, 0.4);
-    --secondary: #7000FF;
-    --secondary-glow: rgba(112, 0, 255, 0.4);
+    /* Colors – LAPIS Brand */
+    --bg-main: #FFFFFF;
+    --bg-secondary: #FFF7F2;
+    --primary: #F06522;
+    --primary-dark: #C94E10;
+    --primary-light: #FF8C50;
+    --primary-glow: rgba(240, 101, 34, 0.25);
+    --secondary: #2D3561;
+    --secondary-light: #3D4A80;
     
-    --text-main: #E2E8F0;
-    --text-muted: #94A3B8;
+    --text-main: #1A1A2E;
+    --text-muted: #6B7280;
     --white: #FFFFFF;
 
-    /* Glassmorphism */
-    --glass-bg: rgba(18, 26, 47, 0.6);
-    --glass-border: rgba(255, 255, 255, 0.08);
-    --glass-blur: blur(12px);
+    /* Glassmorphism – light style */
+    --glass-bg: rgba(255, 255, 255, 0.75);
+    --glass-border: rgba(240, 101, 34, 0.12);
+    --glass-blur: blur(16px);
 
     /* Typography */
     --font-sans: 'Inter', sans-serif;
@@ -52,7 +54,7 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
-    color: var(--white);
+    color: var(--text-main);
     line-height: 1.2;
 }
 
@@ -73,26 +75,26 @@ a {
    ========================================= */
 .bg-glow {
     position: absolute;
-    width: 600px;
-    height: 600px;
+    width: 700px;
+    height: 700px;
     border-radius: 50%;
-    filter: blur(100px);
+    filter: blur(120px);
     z-index: -1;
-    opacity: 0.5;
+    opacity: 0.35;
     pointer-events: none;
     animation: float 10s infinite alternate ease-in-out;
 }
 
 .bg-glow-1 {
-    top: -100px;
-    left: -100px;
-    background: var(--secondary-glow);
+    top: -150px;
+    left: -150px;
+    background: rgba(240, 101, 34, 0.2);
 }
 
 .bg-glow-2 {
     top: 40%;
     right: -200px;
-    background: var(--primary-glow);
+    background: rgba(45, 53, 97, 0.12);
     animation-delay: -5s;
 }
 
@@ -106,7 +108,7 @@ a {
    ========================================= */
 .highlight {
     color: var(--primary);
-    text-shadow: 0 0 20px var(--primary-glow);
+    text-shadow: 0 0 18px rgba(240, 101, 34, 0.3);
 }
 
 .highlight-text {
@@ -125,6 +127,7 @@ a {
     -webkit-backdrop-filter: var(--glass-blur);
     border: 1px solid var(--glass-border);
     border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(240, 101, 34, 0.06);
 }
 
 .btn {
@@ -139,14 +142,14 @@ a {
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, var(--primary) 0%, #0088ff 100%);
-    color: var(--bg-main);
-    box-shadow: 0 4px 15px var(--primary-glow);
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    color: #FFFFFF;
+    box-shadow: 0 4px 18px rgba(240, 101, 34, 0.35);
 }
 
 .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px var(--primary-glow);
+    box-shadow: 0 8px 28px rgba(240, 101, 34, 0.5);
 }
 
 /* =========================================
@@ -163,10 +166,11 @@ a {
 
 .navbar.scrolled {
     padding: 1rem 0;
-    background: var(--glass-bg);
+    background: rgba(255, 255, 255, 0.92);
     backdrop-filter: var(--glass-blur);
     -webkit-backdrop-filter: var(--glass-blur);
-    border-bottom: 1px solid var(--glass-border);
+    border-bottom: 1px solid rgba(240, 101, 34, 0.15);
+    box-shadow: 0 2px 20px rgba(240, 101, 34, 0.08);
 }
 
 .nav-content {
@@ -179,7 +183,7 @@ a {
     font-family: var(--font-heading);
     font-size: 1.8rem;
     font-weight: 800;
-    color: var(--white);
+    color: var(--text-main);
     letter-spacing: 1px;
 }
 
@@ -234,8 +238,8 @@ a {
 .badge {
     display: inline-block;
     padding: 0.4rem 1rem;
-    background: rgba(0, 229, 255, 0.1);
-    border: 1px solid rgba(0, 229, 255, 0.2);
+    background: rgba(240, 101, 34, 0.08);
+    border: 1px solid rgba(240, 101, 34, 0.25);
     border-radius: 50px;
     color: var(--primary);
     font-size: 0.85rem;
@@ -285,7 +289,7 @@ a {
     height: 40px;
     border-radius: 50%;
     background: var(--primary);
-    box-shadow: 0 0 15px var(--primary-glow);
+    box-shadow: 0 0 18px rgba(240, 101, 34, 0.4);
 }
 
 .floating-card-1 .lines {
@@ -299,7 +303,7 @@ a {
     height: 6px;
     background: var(--text-muted);
     border-radius: 10px;
-    opacity: 0.3;
+    opacity: 0.25;
 }
 
 .floating-card-1 .line.short {
@@ -321,13 +325,13 @@ a {
 
 .data-block {
     height: 12px;
-    background: var(--secondary);
+    background: rgba(45, 53, 97, 0.3);
     border-radius: 4px;
-    opacity: 0.5;
+    opacity: 0.6;
 }
 
 .block-sm { width: 40%; }
-.block-md { width: 70%; background: var(--primary); }
+.block-md { width: 70%; background: var(--primary); opacity: 0.85; }
 
 /* =========================================
    ABOUT SECTION
@@ -389,24 +393,24 @@ a {
 }
 
 .about-image-glass {
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
+    background: var(--bg-secondary);
+    border: 1px solid rgba(240, 101, 34, 0.15);
     border-radius: 20px;
     padding: 2rem;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    box-shadow: 0 20px 40px rgba(240, 101, 34, 0.08);
 }
 
 .code-snippet {
     font-family: 'Courier New', Courier, monospace;
     font-size: 0.95rem;
     line-height: 1.5;
-    color: #A6ACCD;
+    color: #3D4A80;
 }
 
-.code-snippet .keyword { color: #89DDFF; }
-.code-snippet .class { color: #FFCB6B; }
-.code-snippet .string { color: #C3E88D; }
-.code-snippet .func { color: #82AAFF; }
+.code-snippet .keyword { color: #0369A1; }
+.code-snippet .class { color: var(--primary); }
+.code-snippet .string { color: #16A34A; }
+.code-snippet .func { color: var(--secondary-light); }
 
 /* =========================================
    PROJECTS SECTION
@@ -414,7 +418,7 @@ a {
 .projects {
     padding: 6rem 0;
     position: relative;
-    background: rgba(18, 26, 47, 0.3);
+    background: var(--bg-secondary);
 }
 
 .projects-grid {
@@ -432,8 +436,8 @@ a {
 
 .project-card:hover {
     transform: translateY(-8px);
-    border-color: rgba(0, 229, 255, 0.3);
-    box-shadow: 0 15px 35px rgba(0, 229, 255, 0.15);
+    border-color: rgba(240, 101, 34, 0.3);
+    box-shadow: 0 15px 35px rgba(240, 101, 34, 0.12);
 }
 
 .project-img-placeholder {
@@ -478,7 +482,8 @@ a {
 .tag {
     font-size: 0.75rem;
     padding: 0.3rem 0.8rem;
-    background: rgba(255,255,255,0.1);
+    background: rgba(240, 101, 34, 0.08);
+    border: 1px solid rgba(240, 101, 34, 0.2);
     border-radius: 50px;
     color: var(--primary);
     font-weight: 600;
@@ -488,6 +493,7 @@ a {
 .project-info h3 {
     font-size: 1.4rem;
     margin-bottom: 1rem;
+    color: var(--text-main);
 }
 
 .project-info p {
@@ -500,14 +506,14 @@ a {
 .project-link {
     display: inline-flex;
     align-items: center;
-    color: var(--white);
+    color: var(--primary);
     font-weight: 600;
     font-size: 0.95rem;
     transition: var(--transition-fast);
 }
 
 .project-link:hover {
-    color: var(--primary);
+    color: var(--primary-dark);
     transform: translateX(5px);
 }
 
@@ -532,8 +538,8 @@ a {
 
 .funding-card:hover {
     transform: translateY(-10px);
-    border-color: rgba(255, 255, 255, 0.2);
-    box-shadow: 0 10px 30px rgba(0, 229, 255, 0.1);
+    border-color: rgba(240, 101, 34, 0.25);
+    box-shadow: 0 10px 30px rgba(240, 101, 34, 0.1);
 }
 
 .funding-icon {
@@ -577,6 +583,7 @@ a {
 .funding-card h3 {
     margin-bottom: 1rem;
     font-size: 1.3rem;
+    color: var(--text-main);
 }
 
 .funding-card p {
@@ -588,8 +595,8 @@ a {
    FOOTER
    ========================================= */
 footer {
-    background: #060910;
-    border-top: 1px solid var(--glass-border);
+    background: var(--secondary);
+    border-top: 1px solid rgba(255,255,255,0.08);
     padding: 4rem 0 2rem;
 }
 
@@ -601,9 +608,13 @@ footer {
 }
 
 .footer-info p {
-    color: var(--text-muted);
+    color: rgba(255,255,255,0.55);
     margin-top: 0.5rem;
     font-size: 0.9rem;
+}
+
+.footer-logo {
+    color: #FFFFFF;
 }
 
 .footer-links {
@@ -612,19 +623,19 @@ footer {
 }
 
 .footer-links a {
-    color: var(--text-muted);
+    color: rgba(255,255,255,0.55);
     font-size: 0.95rem;
 }
 
 .footer-links a:hover {
-    color: var(--white);
+    color: var(--primary-light);
 }
 
 .footer-bottom {
     text-align: center;
     padding-top: 2rem;
-    border-top: 1px solid rgba(255,255,255,0.05);
-    color: var(--text-muted);
+    border-top: 1px solid rgba(255,255,255,0.08);
+    color: rgba(255,255,255,0.4);
     font-size: 0.85rem;
 }
 
