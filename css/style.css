@@ -45,11 +45,49 @@ html {
 
 body {
     background-color: var(--bg-main);
+    background-image:
+        radial-gradient(ellipse 80% 50% at 15% 10%,  rgba(240, 101, 34, 0.07) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 50% at 85% 90%,  rgba(45,  53,  97, 0.07) 0%, transparent 55%),
+        radial-gradient(ellipse 40% 30% at 50% 50%,  rgba(240, 101, 34, 0.03) 0%, transparent 70%);
     color: var(--text-main);
     font-family: var(--font-sans);
     line-height: 1.6;
     overflow-x: hidden;
     position: relative;
+}
+
+/* ── dot-grid texture ── */
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+        radial-gradient(circle, rgba(240, 101, 34, 0.12) 1px, transparent 1px);
+    background-size: 36px 36px;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* ── diagonal lines overlay ── */
+body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: repeating-linear-gradient(
+        -45deg,
+        transparent,
+        transparent 60px,
+        rgba(240, 101, 34, 0.025) 60px,
+        rgba(240, 101, 34, 0.025) 61px
+    );
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* push all real content above the fixed overlays */
+body > * {
+    position: relative;
+    z-index: 1;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -74,33 +112,82 @@ a {
    BACKGROUND GLOWS
    ========================================= */
 .bg-glow {
-    position: absolute;
-    width: 700px;
-    height: 700px;
+    position: fixed;
     border-radius: 50%;
-    filter: blur(120px);
-    z-index: -1;
-    opacity: 0.35;
+    filter: blur(110px);
+    z-index: 0;
     pointer-events: none;
-    animation: float 10s infinite alternate ease-in-out;
+    mix-blend-mode: multiply;
 }
 
+/* Orb 1 – large orange, top-left */
 .bg-glow-1 {
-    top: -150px;
-    left: -150px;
-    background: rgba(240, 101, 34, 0.2);
+    width: 800px;
+    height: 800px;
+    top: -200px;
+    left: -200px;
+    background: radial-gradient(circle, rgba(240, 101, 34, 0.22) 0%, transparent 70%);
+    animation: drift-a 18s infinite alternate ease-in-out;
 }
 
+/* Orb 2 – medium navy, right-center */
 .bg-glow-2 {
-    top: 40%;
-    right: -200px;
-    background: rgba(45, 53, 97, 0.12);
-    animation-delay: -5s;
+    width: 600px;
+    height: 600px;
+    top: 30%;
+    right: -180px;
+    background: radial-gradient(circle, rgba(45, 53, 97, 0.18) 0%, transparent 70%);
+    animation: drift-b 14s infinite alternate ease-in-out;
 }
 
-@keyframes float {
-    0% { transform: translate(0, 0); }
-    100% { transform: translate(50px, 50px); }
+/* Orb 3 – small bright orange, bottom-left */
+.bg-glow-3 {
+    width: 400px;
+    height: 400px;
+    bottom: 10%;
+    left: 5%;
+    background: radial-gradient(circle, rgba(255, 140, 80, 0.16) 0%, transparent 70%);
+    animation: drift-c 22s infinite alternate ease-in-out;
+}
+
+/* Orb 4 – wide navy, very bottom */
+.bg-glow-4 {
+    width: 900px;
+    height: 500px;
+    bottom: -100px;
+    right: 10%;
+    background: radial-gradient(ellipse, rgba(61, 74, 128, 0.12) 0%, transparent 70%);
+    animation: drift-a 26s 4s infinite alternate ease-in-out;
+}
+
+/* Orb 5 – tiny sharp orange, top-right accent */
+.bg-glow-5 {
+    width: 300px;
+    height: 300px;
+    top: 5%;
+    right: 15%;
+    filter: blur(70px);
+    background: radial-gradient(circle, rgba(240, 101, 34, 0.14) 0%, transparent 65%);
+    animation: drift-b 12s 2s infinite alternate ease-in-out;
+}
+
+@keyframes drift-a {
+    0%   { transform: translate(0px,   0px)   scale(1);    }
+    33%  { transform: translate(40px, -30px)  scale(1.05); }
+    66%  { transform: translate(-20px, 50px)  scale(0.97); }
+    100% { transform: translate(60px,  20px)  scale(1.08); }
+}
+
+@keyframes drift-b {
+    0%   { transform: translate(0px,   0px)   scale(1);    }
+    50%  { transform: translate(-50px, 30px)  scale(1.06); }
+    100% { transform: translate(30px, -40px)  scale(0.95); }
+}
+
+@keyframes drift-c {
+    0%   { transform: translate(0px,  0px);  }
+    40%  { transform: translate(30px, 60px); }
+    100% { transform: translate(-40px, -20px); }
 }
 
 /* =========================================
