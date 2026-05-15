@@ -551,6 +551,14 @@ a {
     filter: drop-shadow(0 1px 3px rgba(0,0,0,0.3));
 }
 
+.project-icon-img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    flex-shrink: 0;
+    filter: drop-shadow(0 1px 3px rgba(0,0,0,0.3));
+}
+
 /* Project image gallery / carousel */
 .project-gallery {
     position: relative;
